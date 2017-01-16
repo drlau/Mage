@@ -19,7 +19,7 @@ public class InfoCommand extends Command {
                 .append("    **Version**:        " + Mage.settings.getVersion() + "\n")
                 .append("    **ID**:                  " + e.getJDA().getSelfUser().getId() + "\n")
                 //.append("__Creator__\n")
-                .append("    **Creator**:        " + e.getGuild().getMemberById(Mage.settings.getAuthor()).getNickname() + "\n")
+                .append("    **Creator**:        " + e.getGuild().getMemberById(Mage.settings.getAuthor()).getEffectiveName() + "\n")
                 //.append("    **ID**:                 " + Mage.settings.getAuthor() + "\n");
                 //.append("    **Github**:        <https://github.com/drlau>\n")
                 //.append("__Development__\n")

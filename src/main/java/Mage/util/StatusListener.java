@@ -9,7 +9,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
  */
 public class StatusListener extends ListenerAdapter {
     public void onGuildJoin(GuildJoinEvent e) {
-        String message = "Hello! I'm Mage, a bot created by " + e.getGuild().getMemberById(Mage.settings.getAuthor()).getNickname() + "!\n"
+        String message = "Hello! I'm Mage, a bot created by " + e.getGuild().getMemberById(Mage.settings.getAuthor()).getEffectiveName() + "!\n"
                 + "I'm still in development and you can find my commands by typing !help";
         e.getGuild().getPublicChannel().sendMessage(message).queue();
     }
