@@ -21,7 +21,8 @@ public class AutoGreenCommand extends Command {
             return;
         }
         if (e.getMessage().getContent().startsWith(">") && enabled &&
-                !e.getMessage().isFromType(ChannelType.PRIVATE)) autoGreen(e);
+                !e.getMessage().isFromType(ChannelType.PRIVATE)
+                && e.getMessage().getContent().length() > 1) autoGreen(e);
         if (containsCommand(e.getMessage())) onCommand(commandArgs(e.getMessage()), e);
     }
 
