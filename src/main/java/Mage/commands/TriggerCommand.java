@@ -17,14 +17,14 @@ import java.util.stream.Collectors;
 /**
  * Created by Aidil on 2017-01-14.
  */
-public class FriendshipCommand extends Command {
+public class TriggerCommand extends Command {
 
     private Random random = new Random();
 
     @Override
     public void onCommand(String[] args, MessageReceivedEvent e){
         try {
-            List<File> imgs = Files.walk(Paths.get(Mage.settings.getPath() + "img/friendship/"))
+            List<File> imgs = Files.walk(Paths.get(Mage.settings.getPath() + "img/trigger/"))
                     .filter(Files::isRegularFile)
                     .map(Path::toFile)
                     .collect(Collectors.toList());
@@ -46,21 +46,21 @@ public class FriendshipCommand extends Command {
 
     @Override
     public List<String> getAliases(){
-        return Arrays.asList("!friendship");
+        return Arrays.asList("!trigger");
     }
 
     @Override
     public String getDescription(){
-        return "Sends a triggering picture of a friendship destroyer.";
+        return "Sends a triggering picture, possibly friendship destroyers. YMMV.";
     }
 
     @Override
     public String getName(){
-        return "Friendship Destroyer";
+        return "Trigger";
     }
 
     @Override
     public List<String> getUsageInfo(){
-        return Arrays.asList("!friendship");
+        return Arrays.asList("!trigger");
     }
 }

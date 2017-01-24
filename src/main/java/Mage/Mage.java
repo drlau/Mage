@@ -9,10 +9,8 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -53,7 +51,7 @@ public class Mage {
             jdaBuilder.addListener(new KillCommand());
             jdaBuilder.addListener(new RestartCommand());
             jdaBuilder.addListener(help.addCommand(new MeowCommand()));
-            jdaBuilder.addListener(help.addCommand(new FriendshipCommand()));
+            jdaBuilder.addListener(help.addCommand(new TriggerCommand()));
 
             //TODO: Add music help
 
