@@ -34,6 +34,7 @@ public class XIVAccuracyCommand extends Command {
         caps.put("sephex", new int[]{647, 620, 540});
         caps.put("nidex", new int[]{676, 650, 575});
         caps.put("sophex", new int[]{699, 682, 593});
+        caps.put("zurvex", new int[]{699, 682, 593});
     }
 
 

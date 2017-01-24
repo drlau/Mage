@@ -53,6 +53,7 @@ public class Mage {
             jdaBuilder.addListener(new KillCommand());
             jdaBuilder.addListener(new RestartCommand());
             jdaBuilder.addListener(help.addCommand(new MeowCommand()));
+            jdaBuilder.addListener(help.addCommand(new FriendshipCommand()));
 
             //TODO: Add music help
 
