@@ -22,7 +22,7 @@ repositories {
 dependencies {
     compile "com.google.code.gson:gson:2.4"
     compile 'net.dv8tion:JDA:3.0.BETA2_120'
-    compile 'com.sedmelluq:lavaplayer:1.1.38'
+    compile 'com.sedmelluq:lavaplayer:1.2.8'
 }
 
 buildscript {

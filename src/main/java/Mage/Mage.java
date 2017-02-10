@@ -18,7 +18,6 @@ import java.net.URLDecoder;
  * Created by Aidil on 2017-01-13.
  */
 public class Mage {
-
     private static JDA jda;
     public static Settings settings;
     //TODO: Getters and setters for settings
@@ -33,27 +32,7 @@ public class Mage {
         try {
             settings.setPath(getPath());
             JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT).setToken(settings.getBotToken());
-            HelpCommand help = new HelpCommand();
-
-            jdaBuilder.addListener(new PlayerControl());
-            jdaBuilder.addListener(new StatusListener());
-
-            jdaBuilder.addListener(help.addCommand(new XIVAccuracyCommand()));
-            jdaBuilder.addListener(help.addCommand(new AutoGreenCommand()));
-            jdaBuilder.addListener(help.addCommand(help));
-            jdaBuilder.addListener(help.addCommand(new InfoCommand()));
-            jdaBuilder.addListener(help.addCommand(new PingCommand()));
-            jdaBuilder.addListener(help.addCommand(new RollCommand()));
-            jdaBuilder.addListener(help.addCommand(new SmugCommand()));
-            jdaBuilder.addListener(help.addCommand(new UptimeCommand()));
-            jdaBuilder.addListener(help.addCommand(new XIVWeightCommand()));
-            jdaBuilder.addListener(help.addCommand(new GQCommand()));
-            jdaBuilder.addListener(new KillCommand());
-            jdaBuilder.addListener(new RestartCommand());
-            jdaBuilder.addListener(help.addCommand(new MeowCommand()));
-            jdaBuilder.addListener(help.addCommand(new TriggerCommand()));
-
-            //TODO: Add music help
+            initializeCommands(jdaBuilder);
 
             jda = jdaBuilder.buildBlocking();
             jda.getPresence().setGame(Game.of("Explosion!"));
@@ -68,11 +47,33 @@ public class Mage {
         }
     }
 
+    private static void initializeCommands(JDABuilder jdaBuilder) {
+        HelpCommand help = new HelpCommand();
+
+        jdaBuilder.addListener(new PlayerControl());
+        jdaBuilder.addListener(new StatusListener());
+
+        jdaBuilder.addListener(help.addCommand(new XIVAccuracyCommand()));
+        jdaBuilder.addListener(help.addCommand(new AutoGreenCommand()));
+        jdaBuilder.addListener(help.addCommand(help));
+        jdaBuilder.addListener(help.addCommand(new InfoCommand()));
+        jdaBuilder.addListener(help.addCommand(new PingCommand()));
+        jdaBuilder.addListener(help.addCommand(new RollCommand()));
+        jdaBuilder.addListener(help.addCommand(new SmugCommand()));
+        jdaBuilder.addListener(help.addCommand(new UptimeCommand()));
+        jdaBuilder.addListener(help.addCommand(new XIVWeightCommand()));
+        jdaBuilder.addListener(help.addCommand(new GQCommand()));
+        jdaBuilder.addListener(new KillCommand());
+        jdaBuilder.addListener(new RestartCommand());
+        jdaBuilder.addListener(help.addCommand(new MeowCommand()));
+        jdaBuilder.addListener(help.addCommand(new TriggerCommand()));
+
+        //TODO: Add music help
+    }
+
     private static String getPath() throws UnsupportedEncodingException {
         String path = Mage.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
-        // Additional checks for Windows
-        // TODO: Linux testing
         if (path.endsWith(".jar")){
             path = (new File(path)).getParentFile().getPath();
         }
@@ -89,16 +90,10 @@ public class Mage {
         String path = Mage.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         String decoded = URLDecoder.decode(path, "UTF-8");
 
-        // Additional checks for Windows
-        // TODO: Linux testing
         if (!decoded.endsWith(".jar"))
         {
             return new File("Mage.jar");
         }
         return new File(decoded);
     }
-
-//    public Settings getSettings(){
-//        return settings;
-//    }
 }

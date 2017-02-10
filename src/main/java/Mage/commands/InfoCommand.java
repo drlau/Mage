@@ -18,16 +18,11 @@ public class InfoCommand extends Command {
         builder.append("__Mage Information__\n")
                 .append("    **Version**:        " + Mage.settings.getVersion() + "\n")
                 .append("    **ID**:                  " + e.getJDA().getSelfUser().getId() + "\n");
-                //.append("__Creator__\n")
                 if (e.getGuild() != null) {
                     builder.append("    **Creator**:        " + e.getGuild().getMemberById(Mage.settings.getAuthor()).getEffectiveName() + "\n");
                 } else { // In a private channel
                     builder.append("    **Creator**:        Violet\n");
                 }
-                //.append("    **ID**:                 " + Mage.settings.getAuthor() + "\n");
-                //.append("    **Github**:        <https://github.com/drlau>\n")
-                //.append("__Development__\n")
-                //.append("    **Language**:   Java 8\n");
                 builder.append("    **Library**:         JDA 3.0.BETA2_120\n");
         sendMessage(builder.build(), e);
     }

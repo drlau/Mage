@@ -6,7 +6,7 @@ package Mage.util;
 public class Settings {
     private String botToken = "";
     private static final String AUTHOR = "78905029032947712";
-    private static final String VERSION = "1.0.3";
+    private static final String VERSION = "1.0.4";
     private String path = "";
 
     public String getBotToken(){
